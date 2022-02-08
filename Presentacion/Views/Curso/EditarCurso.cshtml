@@ -1,0 +1,44 @@
+﻿@model CapaEntidad.CursoBE
+
+@{
+    ViewBag.Title = "EditarCurso";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+
+    var listaProfesores = ViewBag.ListadoProfesores;
+}
+
+<h2>Editar Curso</h2>
+
+<table>
+    @using (Html.BeginForm("ActualizarCurso", "Curso", FormMethod.Post))
+    {
+        <tr>
+            <td>ID:</td>
+            <td><input type="text" name="txtIdCurso" readonly value="@Model.idCurso"/></td>
+        </tr>
+        <tr>
+            <td>Curso:</td>
+            <td><input type="text" name="txtCurso" value="@Model.curso" /></td>
+        </tr>
+        <tr>
+            <td>Profesor:</td>
+            <td>
+                <select name="cboProfesor">
+                    @foreach (var item in listaProfesores)
+                    {
+                        <option value="@item.idProfesor">@item.nombres</option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Actualizar</button></td>
+        </tr>
+    }
+
+    <tr>
+        <td></td>
+    </tr>
+</table>
+

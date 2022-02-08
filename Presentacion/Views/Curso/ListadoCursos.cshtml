@@ -1,0 +1,28 @@
+﻿@model List<CapaEntidad.CursoBE>
+
+@{
+    ViewBag.Title = "ListadoCursos";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<h2>Listado Cursos</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre del curso</th>
+        <th>Profesor</th>
+        <th>Estados</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.idCurso</td>
+        <td>@item.curso</td>
+        <td>@item.profesorBE.nombres</td>
+        <td>@Html.ActionLink("ACTUALIZAR", "EditarCurso", new { idCurso = item.idCurso })</td>
+        <td>@Html.ActionLink("ELIMINAR", "EliminarCurso", new { idCurso = item.idCurso })</td>
+    </tr>
+    }
+</table>
+

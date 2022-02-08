@@ -1,0 +1,34 @@
+﻿@model CapaEntidad.CursoBE
+
+@{
+    ViewBag.Title = "InsertarCurso";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+
+    var listaProfesores = ViewBag.ListadoProfesores;
+}
+
+<h2>Insertar Curso</h2>
+
+<table>
+    @using (Html.BeginForm("AgregarCurso", "Curso", FormMethod.Post))
+    {
+    <tr>
+        <td>Curso:</td>
+        <td><input type="text" name="txtCurso" /></td>
+    </tr>
+    <tr>
+        <td>Profesor:</td>
+        <td><select name="cboProfesor">
+            @foreach (var item in listaProfesores)
+            {
+                <option value="@item.idProfesor">@item.nombres</option>
+            }
+            </select></td>
+    </tr>
+    
+    <tr>
+        <td><button type="submit">Agregar</button></td>
+    </tr>
+    }
+</table>
+

@@ -1,0 +1,34 @@
+﻿@model CapaEntidad.ProfesorBE
+
+@{
+    ViewBag.Title = "AgregarProfesor";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<h2>Agregar Profesor</h2>
+
+<table>
+    @using (Html.BeginForm("InsertarProfesor", "Profesor", FormMethod.Post))
+    {
+        <tr>
+            <td>Nombres: </td>
+            <td><input type="text" name="txtNombres" /> </td>
+        </tr>
+
+        <tr>
+            <td>Apellido Paterno: </td>
+            <td><input type="text" name="txtApellidoP" /> </td>
+        </tr>
+
+        <tr>
+            <td>Apellido Materno: </td>
+            <td><input type="text" name="txtApellidoM" /> </td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Agregar</button> </td>
+
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,39 @@
+﻿@model CapaEntidad.ProfesorBE
+
+@{
+    ViewBag.Title = "EditarProfesor";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<h2>EditarProfesor</h2>
+
+<table>
+    @using (Html.BeginForm("ActualizarProfesor", "Profesor", FormMethod.Post))
+    {
+        <tr>
+            <td>ID: </td>
+            <td><input type="text" name="txtId" value="@Model.idProfesor" readonly/> </td>
+        </tr>
+
+        <tr>
+            <td>Nombres: </td>
+            <td><input type="text" name="txtNombres" value="@Model.nombres"/> </td>
+        </tr>
+
+        <tr>
+            <td>Apellido Paterno: </td>
+            <td><input type="text" name="txtApellidoP" value="@Model.apellidosPat"/> </td>
+        </tr>
+
+        <tr>
+            <td>Apellido Materno: </td>
+            <td><input type="text" name="txtApellidoM" value="@Model.apellidoMat"/> </td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Actualizar</button> </td>
+
+        </tr>
+    }
+</table>
+
